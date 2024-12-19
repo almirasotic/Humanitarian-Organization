@@ -1,0 +1,60 @@
+﻿<Window x:Class="ProjekatWPF.CardPaymentPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjekatWPF"
+        mc:Ignorable="d"
+        Title="CardPaymentPage" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Unesite podatke o kartici:" FontWeight="Bold" Margin="0,0,0,10" />
+
+           
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Margin="5">
+                    <TextBox x:Name="expirationMonthTextBox" Width="50" FontSize="16">
+                        <TextBox.ToolTip>
+                            <ToolTip Content="MM" />
+                        </TextBox.ToolTip>
+                    </TextBox>
+                </Border>
+                <TextBlock Text="/" VerticalAlignment="Center" Margin="5" />
+                <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Margin="5">
+                    <TextBox x:Name="expirationYearTextBox" Width="50" FontSize="16">
+                        <TextBox.ToolTip>
+                            <ToolTip Content="YY" />
+                        </TextBox.ToolTip>
+                    </TextBox>
+                </Border>
+            </StackPanel>
+
+            <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Margin="0,0,0,10">
+                <TextBox x:Name="cvvTextBox" Margin="5" FontSize="16">
+                    <TextBox.ToolTip>
+                        <ToolTip Content="CVV kod" />
+                    </TextBox.ToolTip>
+                </TextBox>
+            </Border>
+
+            <Button Content="Doniraj" Click="Button_Click" HorizontalAlignment="Center" Margin="0,20,0,0" Width="100" Height="40">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#0078D7" />
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="FontSize" Value="18" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#005A9E" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Grid>
+
+
+</Window>

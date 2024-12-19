@@ -1,0 +1,33 @@
+﻿<Window x:Class="ProjekatWPF.OdabirProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjekatWPF" 
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d"
+        Title="OdabirProzor" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Odaberite humanitarnu organizaciju:" FontWeight="Bold"/>
+            <DataGrid SelectionChanged="DataGrid_SelectionChanged" x:Name="dataGrid"  AutoGenerateColumns="False" ItemsSource="{Binding organizacije,Mode=TwoWay}" SelectedItem="{Binding o}">
+                <DataGrid.Height>200</DataGrid.Height>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ime Organizacija" Binding="{Binding ImeOrg,Mode=TwoWay}" Width="100"/>
+                    <DataGridTextColumn Header="Donacija (Trenutno stanje)" Binding="{Binding PotrebnaKol,Mode=TwoWay}" Width="100"/>
+                    <DataGridTextColumn Header="Tekst" Binding="{Binding Tekst,Mode=TwoWay}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Text="Unesite iznos donacije:" FontWeight="Bold" Margin="0,10,0,0"/>
+            <TextBox x:Name="donationAmountTextBox" Text="{Binding DonationAmount}" />
+
+            <TextBlock Text="Način plaćanja:" FontWeight="Bold" Margin="0,10,0,0"/>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton x:Name="cardRadioButton" Content="Kartica" GroupName="paymentGroup"  Checked="CardRadioButton_Checked" IsChecked="False" />
+
+                <RadioButton x:Name="cashRadioButton" Content="Gotovina" GroupName="paymentGroup" Checked="cashRadioButton_Checked"/>
+            </StackPanel>
+            <Button Content="Doniraj" Margin="0 0 20 0" HorizontalAlignment="Center" Click="DonationButton_Click" FontSize="16" Padding="20 10" Background="#007ACC" Foreground="White" Width="120" Height="50"/>
+        </StackPanel>
+    </Grid>
+</Window>
